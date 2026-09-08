@@ -1,4 +1,5 @@
 import os
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import urllib.request
 import torch
 
@@ -6,6 +7,7 @@ from config import GPT_CONFIG_774M
 from model import GPTModel
 from dataset import create_dataloader_v1
 from train import train_model_simple
+import bitsandbytes as bnb
 import tiktoken
 
 # 1. Download "The Verdict" if not already present
